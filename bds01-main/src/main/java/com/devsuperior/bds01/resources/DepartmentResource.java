@@ -19,7 +19,7 @@ public class DepartmentResource {
 	private DepartmentService service;
 
 	@GetMapping
-	public ResponseEntity<List<DepartmentDTO>> findAllPaged() {
+	public ResponseEntity<List<DepartmentDTO>> findAll() {
 		List<DepartmentDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
