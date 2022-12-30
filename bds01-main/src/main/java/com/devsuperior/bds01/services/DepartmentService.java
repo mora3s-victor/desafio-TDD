@@ -1,9 +1,10 @@
-package com.devsuperior.bds01;
+package com.devsuperior.bds01.services;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,11 +18,9 @@ public class DepartmentService {
 	@Autowired
 	private DepartmentRepository repository;
 	
-	@Transactional
+	@Transactional(readOnly = true)
 	public List<DepartmentDTO> findAll() {
-		List<Department> departments = repository.findAll();
-		List<DepartmentDTO> list = new ArrayList<>();
-		departments.forEach(dep -> list.add(new DepartmentDTO(dep)));
-		return list;
+		List<Department> list = repository.findAll(Sort.by("name"));
+		return list.stream().map(dep -> new DepartmentDTO(dep)).collect(Collectors.toList());
 	}
 }

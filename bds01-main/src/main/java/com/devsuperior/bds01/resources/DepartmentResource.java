@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devsuperior.bds01.DepartmentService;
 import com.devsuperior.bds01.dto.DepartmentDTO;
+import com.devsuperior.bds01.services.DepartmentService;
 
 @RestController
 @RequestMapping(value = "/departments")

@@ -1,11 +1,14 @@
 package com.devsuperior.bds01.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.devsuperior.bds01.entities.Department;
 import com.devsuperior.bds01.entities.Employee;
 
-public class DepartmentDTO {
+public class DepartmentDTO implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	private Long id;
 	private String name;
@@ -50,5 +53,6 @@ public class DepartmentDTO {
 
 	public List<EmployeeDTO> getEmployes() {
 		return employes;
-	}	
+	}
+	
 }
